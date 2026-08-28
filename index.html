@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TikTok Growth Store</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#080808;color:#fff}
+header{padding:70px 20px;text-align:center;background:linear-gradient(135deg,#000,#151515);border-bottom:1px solid #333}
+header h1{font-size:42px;margin-bottom:12px}
+header h1 span{color:#ff0050}
+header p{color:#bbb;font-size:17px}
+.container{width:92%;max-width:1150px;margin:45px auto}
+.section-title{text-align:center;font-size:30px;margin-bottom:30px}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.card{background:#111;border:1px solid #292929;padding:30px 20px;text-align:center;border-radius:20px;transition:.3s}
+.card:hover{transform:translateY(-8px);border-color:#ff0050;box-shadow:0 10px 35px rgba(255,0,80,.15)}
+.icon{font-size:48px;margin-bottom:15px}
+.card h2{margin-bottom:10px}
+.card p{color:#aaa;margin-bottom:18px}
+.price{font-size:27px;font-weight:bold;margin-bottom:18px}
+.buy-btn{width:100%;padding:13px;border:none;border-radius:10px;background:linear-gradient(90deg,#ff0050,#ff2d55);color:white;font-size:16px;font-weight:bold;cursor:pointer}
+.buy-btn:hover{opacity:.85}
+.order-section{max-width:650px;margin:60px auto 30px;padding:35px;background:#111;border:1px solid #292929;border-radius:22px}
+.order-section h2{text-align:center;margin-bottom:25px}
+input,select{width:100%;padding:15px;margin-bottom:15px;border-radius:10px;border:1px solid #333;background:#080808;color:#fff;outline:none}
+input:focus,select:focus{border-color:#ff0050}
+.order-btn{width:100%;padding:15px;border:none;border-radius:10px;background:#25D366;color:white;font-size:17px;font-weight:bold;cursor:pointer}
+.order-btn:hover{background:#1ebe5d}
+#message{text-align:center;margin-top:18px;font-weight:bold}
+footer{margin-top:60px;padding:25px;text-align:center;background:#050505;border-top:1px solid #222;color:#888}
+@media(max-width:600px){header h1{font-size:32px}header{padding:50px 15px}.order-section{padding:25px 18px}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🚀 <span>TikTok</span> Growth Store</h1>
+<p>Followers • Likes • Views • Comments • Shares • Favourites</p>
+</header>
+
+<div class="container">
+<h2 class="section-title">Our Services</h2>
+
+<div class="services">
+<div class="card"><div class="icon">👥</div><h2>Followers</h2><p>1,000 TikTok Followers</p><div class="price">Rs. 500</div><button class="buy-btn" onclick="selectService('TikTok Followers')">Buy Now</button></div>
+<div class="card"><div class="icon">❤️</div><h2>Likes</h2><p>1,000 TikTok Likes</p><div class="price">Rs. 300</div><button class="buy-btn" onclick="selectService('TikTok Likes')">Buy Now</button></div>
+<div class="card"><div class="icon">👁️</div><h2>Views</h2><p>1,000 TikTok Views</p><div class="price">Rs. 400</div><button class="buy-btn" onclick="selectService('TikTok Views')">Buy Now</button></div>
+<div class="card"><div class="icon">💬</div><h2>Comments</h2><p>1,000 TikTok Comments</p><div class="price">Rs. 600</div><button class="buy-btn" onclick="selectService('TikTok Comments')">Buy Now</button></div>
+<div class="card"><div class="icon">🔗</div><h2>Shares</h2><p>1,000 TikTok Shares</p><div class="price">Rs. 350</div><button class="buy-btn" onclick="selectService('TikTok Shares')">Buy Now</button></div>
+<div class="card"><div class="icon">⭐</div><h2>Favourites</h2><p>1,000 TikTok Favourites</p><div class="price">Rs. 350</div><button class="buy-btn" onclick="selectService('TikTok Favourites')">Buy Now</button></div>
+</div>
+
+<div class="order-section">
+<h2>🛒 Place Your Order</h2>
+<input type="text" id="username" placeholder="Enter TikTok Username">
+<input type="text" id="link" placeholder="Enter TikTok Video/Profile Link">
+<select id="service">
+<option value="">Select Service</option>
+<option>TikTok Followers</option>
+<option>TikTok Likes</option>
+<option>TikTok Views</option>
+<option>TikTok Comments</option>
+<option>TikTok Shares</option>
+<option>TikTok Favourites</option>
+</select>
+<button class="order-btn" onclick="placeOrder()">💬 Order on WhatsApp</button>
+<div id="message"></div>
+</div>
+</div>
+
+<footer><p>© 2026 TikTok Growth Store | All Rights Reserved</p></footer>
+
+<script>
+function selectService(serviceName){
+    document.getElementById("service").value=serviceName;
+    document.querySelector(".order-section").scrollIntoView({behavior:"smooth"});
+}
+
+function placeOrder(){
+    const username=document.getElementById("username").value.trim();
+    const link=document.getElementById("link").value.trim();
+    const service=document.getElementById("service").value;
+    const message=document.getElementById("message");
+
+    if(username==="" || link==="" || service===""){
+        message.style.color="#ff4444";
+        message.innerText="❌ Please fill all the information.";
+        return;
+    }
+
+    // WhatsApp: 03701549135
+    const whatsappNumber="923701549135";
+
+    const text =
+        "Hello TikTok Growth Store 👋\n\n"+
+        "🛒 New Order\n"+
+        "👤 Username: "+username+"\n"+
+        "🔗 Link: "+link+"\n"+
+        "📦 Service: "+service+"\n\n"+
+        "Please confirm my order.";
+
+    const whatsappURL=
+        "https://wa.me/"+whatsappNumber+"?text="+encodeURIComponent(text);
+
+    window.open(whatsappURL,"_blank");
+    message.style.color="#25D366";
+    message.innerText="✅ Opening WhatsApp...";
+}
+</script>
+</body>
+</html>
